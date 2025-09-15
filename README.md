@@ -89,3 +89,13 @@ Praktikum ini berhasil mengimplementasikan layout dasar Flutter (Praktikum 1–4
 Pemahaman tentang widget dasar (Image.asset, Row, Column, ListView) serta navigasi (Navigator.push) semakin meningkat. Praktikum ini juga melatih pengelolaan aset dan penerapan konsep multi-halaman dalam Flutter.
 
 
+1. Validasi Input: Tambahkan validasi yang lebih baik. Misalnya, cek apakah email
+memiliki format yang benar (mengandung ’@’) atau password memiliki panjang
+minimal 6 karakter.
+2. Tampilkan/Sembunyikan Password: Tambahkan ikon mata pada TextField
+password yang bisa ditekan untuk menampilkan atau menyembunyikan teks password.
+3. Animasi Sederhana: Tambahkan Hero widget pada ikon di halaman login dan
+registrasi agar ada transisi animasi yang halus.
+4. Simpan Sesi Login: Coba gunakan package shared_preferences untuk menyimpan status login. Jadi, saat aplikasi ditutup dan dibuka lagi, pengguna tidak
+perlu login ulang jika sesinya masih aktif.
+

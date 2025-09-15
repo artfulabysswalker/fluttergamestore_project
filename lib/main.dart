@@ -1,24 +1,39 @@
 import 'package:flutter/material.dart';
-import 'models/pages/main_page.dart';   // your MainPage file
-import 'models/pages/item_page.dart';  // your ItemPage file
+import 'package:google_fonts/google_fonts.dart';
 
-void main() => runApp(const MyApp());
+// Import your pages
+import 'data/login_page.dart';
+import 'data/home_page.dart';
+import 'data/session_manager.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Cek sesi login sebelum runApp
+  bool loggedIn = await SessionManager.isLoggedIn();
+
+  runApp(MyApp(loggedIn: loggedIn));
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool loggedIn;
+  const MyApp({super.key, required this.loggedIn});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Flutter Login UI',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        textTheme: GoogleFonts.poppinsTextTheme(
+          Theme.of(context).textTheme,
+        ),
+      ),
       debugShowCheckedModeBanner: false,
-      title: 'Retro Game Store',
-      theme: ThemeData.dark(),
-      
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const MainPage(),
-        '/item': (context) => const ItemPage(),
-      },
+     home: loggedIn 
+    ? HomePage(fullName: "User")  // ✅ pass a default or stored fullName here
+    : const LoginPage(),
+
     );
   }
 }
