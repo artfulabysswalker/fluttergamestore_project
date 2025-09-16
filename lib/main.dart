@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-// Import your pages
+
 import 'data/login_page.dart';
 import 'data/home_page.dart';
 import 'data/session_manager.dart';
@@ -9,7 +9,7 @@ import 'data/session_manager.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Cek sesi login sebelum runApp
+
   bool loggedIn = await SessionManager.isLoggedIn();
 
   runApp(MyApp(loggedIn: loggedIn));
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
      home: loggedIn 
-    ? HomePage(fullName: "User")  // ✅ pass a default or stored fullName here
+    ? HomePage(fullName: "User") 
     : const LoginPage(),
 
     );
